@@ -22,6 +22,7 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # 移除要替换的包
 rm -rf feeds/smpackage/luci-app-wechatpush
 find feeds/smpackage -type d -name 'luci-theme*' -exec rm -rf {} \;
+find feeds/smpackage -type d -name 'luci-app-argon*' -exec rm -rf {} \;
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 # 添加额外插件
