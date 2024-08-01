@@ -21,9 +21,13 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 
 # 移除要替换的包
 rm -rf feeds/smpackage/luci-app-wechatpush
+find feeds/smpackage -type d -name 'luci-theme*' -exec rm -rf {} \;
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 # 添加额外插件
 git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
